@@ -9,22 +9,23 @@
   </head>
   <body>
     <div class="page">
-      <div class="page-header cf">
-        <h2>Students</h2>
+        <div class="page-header cf">
+            <h2>Students</h2>
         
-        <!-- dynamically insert search form here (optional) -->
-        <div class="student-search">
-            <input type="text" class="textInput" placeholder="Enter text to filter...">
-            <button>Filter</button>
+        <!-- dynamically insert search form here (optional)
+            <div class="student-search">
+                <input type="text" class="textInput" placeholder="Enter text to filter list...">
+                <button class="toggleList">Filter</button>
+            </div> -->
+
         </div>
 
-      </div>
-      <ul class="student-list">
+        <ul class="student-list">
         <li class="student-item cf">
             <div class="student-details">
                 <img class="avatar" src="https://randomuser.me/api/portraits/thumb/women/67.jpg">
                 <h3>iboya vat</h3>
-                <span class="email">iboya.vat@example.com</span>
+                <span class="email" visibility="hidden">iboya.vat@example.com</span>
             </div>
             <div class="joined-details">
                    <span class="date">Joined 07/15/15</span>
@@ -269,7 +270,7 @@
             <div class="joined-details">
                    <span class="date">Joined 09/17/15</span>
            </div>
-        </li>
+        </li> 
         <li class="student-item cf">
             <div class="student-details">
                 <img class="avatar" src="https://randomuser.me/api/portraits/thumb/women/28.jpg">
@@ -442,7 +443,7 @@
         </li>
         <li class="student-item cf">
             <div class="student-details">
-                <img class="avatar" src="https://randomuser.me/api/portraits/thumb/men/35.jpg">
+                <img class="avatar" src="https://randomuser.me/api/portraits/thumb/men/36.jpg">
                 <h3>arlo harris</h3>
                 <span class="email">arlo.harris@example.com</span>
             </div>
@@ -560,9 +561,9 @@
                    <span class="date">Joined 05/14/13</span>
            </div>
         </li>
-      </ul>
-      <!-- dynamically add pagination links here -->
-
+        </ul>
+        <!-- dynamically add pagination links here -->
+            
     </div>
     <script src="js/script.js"></script>
   </body>

@@ -120,4 +120,5 @@ body{
     .pagination li a:hover{
       background-color: #4ba6c3;
       color: #fff;
+      cursor: pointer;
     }
