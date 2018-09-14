@@ -23,10 +23,12 @@ const showPage = (studentRecords, pageNumber) => {  // func that limits how many
             studentRecords[i].style.display = 'none';  // sets the studentRecord outside the if() range to 'none' i.e. not shown
         };
     };
+    
 };
+showPage(studentRecords, pageNumber)
 // = (FSJS) = Create and append the pagination links - Creating a function that can do this is a good approach
 // = (MATT) = W.I.P.  ...*sigh*...*whispers to myself "must. not. cry..."...*sniff*...
-const appendPageLinks = () => {
+const appendPageLinks = (pageNumber) => {
     let numberOfPages = Math.ceil(studentRecords.length / 10); //gets the number of pages
     const div = document.createElement('div'); //creates the <div>
     const ul = document.createElement('ul'); // creates the <ul>
@@ -45,10 +47,11 @@ const appendPageLinks = () => {
     for (let i = 0; i < anchors.length; i++) { //loops through the anchors
         anchors[i].addEventListener('click', (event) => {  // adds a 'click' listener to the anchors
             // = MATT = How do I make all the other <a>'s class go away?   
-            showPage(studentRecords, pageNumber);  // runs showPage()
+            showPage(studentRecords, i + 1);  // runs showPage()
             event.target.className = 'active'; //sets the event.target of the 'click' to 'active'. 
         });
     };
+    
 };
 appendPageLinks();
 // = (FSJS) = Add functionality to the pagination buttons so that they show and hide the correct items
