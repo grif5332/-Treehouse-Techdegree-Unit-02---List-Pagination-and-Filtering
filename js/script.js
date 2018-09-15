@@ -2,7 +2,7 @@
 Treehouse Techdegree:
 FSJS project 2 - List Filter and Pagination
 Tested in the following browsers:
-Chrome
+Chrome, Firefox, Opera,
 ***************************************** */
 // = (FSJS) = Add variables that store DOM elements you will need to reference and/or manipulate
 const recordsPerPage = 10;  // number of records to show on a given page
