@@ -1,21 +1,16 @@
 /******************************************
-Treehouse Techdegree:
-FSJS project 2 - List Filter and Pagination
-Tested in the following browsers:
-Chrome, Firefox, Opera,
+Treehouse Techdegree:  FSJS project 2 - List Filter and Pagination
+Tested in the following browsers:  Chrome, Firefox, Opera,
 ***************************************** */
-// = (FSJS) = Add variables that store DOM elements you will need to reference and/or manipulate
+/* == Global Variables == */ 
 const recordsPerPage = 10;  // number of records to show on a given page
 const studentRecords = document.getElementsByClassName('student-item cf');  //gets all the student records
 let pageNumber = 1;  //sets the initial page
 let numberOfPages = Math.ceil(studentRecords.length / 10);  // takes studentRecords and maths it to find how many pages based on # of records
 const anchors = document.getElementsByTagName('a');  // //gets all the <a>
 
-// = (FSJS) = Create a function to hide all of the items in the list except for the ten you want to show
-// = (FSJS) = Tip: Keep in mind that with a list of 54 studetns, the last page will only display four
-// = (MATT) = DONE WITH THIS SECTION! ...I think...  YAY!
-const showPage = (studentRecords, pageNumber) => {  // func that limits how many records are shown per page
-    //loop through items in the list param.
+/* == showPage() loops through the studentRecords.  Limits how many records are shown per page. == */
+const showPage = (studentRecords, pageNumber) => { //takes in the studentRecords and pageNumber params.
     for (let i = 0; i < studentRecords.length; i++) {  //loops through all the studentRecords
         if (i >= (pageNumber * recordsPerPage) - recordsPerPage && i <= (pageNumber * recordsPerPage)-1) {
             studentRecords[i].style.display = 'block';  //sets the studentRecords within of the if() range to 'block' i.e shown. 
@@ -24,9 +19,9 @@ const showPage = (studentRecords, pageNumber) => {  // func that limits how many
         };
     };
 };
-showPage(studentRecords, pageNumber)  // initially runs the showPage() func
-// = (FSJS) = Create and append the pagination links - Creating a function that can do this is a good approach
-// = (MATT) = W.I.P.  ...*sigh*...*whispers to myself "must. not. cry..."...*sniff*...
+showPage(studentRecords, pageNumber)  // initially runs the showPage() func.
+
+/* == appendPageLinks() creates the elements for output to the page.  It also adds functionality to the created 'pagination' buttons. == */
 const appendPageLinks = () => {
     let numberOfPages = Math.ceil(studentRecords.length / 10); //gets the number of pages
     const div = document.createElement('div'); //creates the <div>
@@ -40,15 +35,15 @@ const appendPageLinks = () => {
         const pageNumber = i + 1;   // const holds the pageNumber + 1 (so output starts @ page 1, not 0)
         const li = document.createElement('li'); //creates an <li>
         ul.appendChild(li);  // Appends the <li> to the <ul>
-        li.innerHTML = `<a href="#" class="">${pageNumber}</a>`;  //inserts a HTML template lit. into the li.  Also inserts the pageNumber
+        li.innerHTML = `<a href="#" class="">${pageNumber}</a>`;  //inserts a HTML template lit. into the <li>.  Also inserts the pageNumber
     };
     
-    for (let i = 0; i < anchors.length; i++) { //loops through the anchors
+    for (let i = 0; i < anchors.length; i++) { //loops through the anchors created by the for loop at line 34.
         anchors[i].addEventListener('click', (event) => {  // adds a 'click' listener to the anchors
             for(let i = 0; i < anchors.length; i++) { // this loops through the <a> list  
                 anchors[i].className = ""; //  sets <a> class to class="". thus, removing "active" and making the buttons not active.
             };
-            showPage(studentRecords, i + 1);  // runs showPage()
+            showPage(studentRecords, i + 1);  // runs showPage() func.
             event.target.className = 'active'; //sets the event.target of the 'click' to 'active'. 
         });
     };
